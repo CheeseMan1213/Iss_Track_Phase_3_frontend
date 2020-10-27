@@ -1,0 +1,39 @@
+<!--
+  This is the HTML file I interacted with the most while building my IssueTrackingApp.
+  It has a nice example of how to use angular in order to display one element if
+  something is true otherwise use the other element.
+-->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Test Model
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Test Model iOS</ion-title> <!--Displays for iOS-->
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Test Model Android and Web</strong> <!--Displays for Android-->
+    <p>Test Model tiny text</p>
+    <p>Test Model I am soooo cool!</p>
+    <p>I am sorry I hurt your feelings Sekora.</p>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>List of Test Models.</ion-card-title>
+    </ion-card-header>
+    <ion-item *ngIf='testModels.length === 0 else showTestModelData'>
+      {{'The array is blank.'}}
+    </ion-item>
+    <ion-item *ngFor='let testModel of testModels' #showTestModelData>
+      {{ testModel | json }}
+    </ion-item>
+  </ion-card>
+</ion-content>

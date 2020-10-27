@@ -1,0 +1,22 @@
+# This is a Kubernetes file. This is a deployment file, and this is the file that pulls from
+# a Docker repository.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: issue-tracking-frontend-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: issue-tracking-frontend
+  template:
+    metadata:
+      labels:
+        app: issue-tracking-frontend
+    spec:
+      containers:
+      - name: issue-tracking-frontend-pod
+        image: 475640621870.dkr.ecr.us-east-1.amazonaws.com/issue-tracking-ecr-repo:build-5c9ef5c5-a92e-416b-b7c3-5263f32e9ca2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8100

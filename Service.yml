@@ -1,0 +1,16 @@
+# This is a Kubernetes file. This is a service file, and it is responsible
+# for managing ports over one or more deployments and helping the port stay static.
+apiVersion: v1
+kind: Service
+metadata:
+  name: issue-tracking-frontend-svc
+  labels:
+    app: issue-tracking-frontend
+spec:
+  type: NodePort
+  ports:
+  - port: 8100
+    nodePort: 30001
+    protocol: TCP
+  selector:
+    app: issue-tracking-frontend
