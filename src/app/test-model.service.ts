@@ -13,7 +13,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class TestModelService {
 
-  private testModelURL = 'https://app.james2ch9developer.com:8443/testApi/TestModels';
+  //private testModelURL = 'https://app.james2ch9developer.com:8443/testApi/TestModels';
+  private testModelURL = 'https//broke_on_purpose';
 
   constructor(private http: HttpClient) {
     //
